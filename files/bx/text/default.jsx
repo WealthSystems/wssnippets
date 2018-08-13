@@ -1,0 +1,16 @@
+    <Bx.Text
+        bold
+        capitalize
+        color="${1:Color"
+        deleted
+        ellipsis
+        italic
+        left-space
+        lines={1}
+        lowercase
+        right-space
+        size={${2:1.0|2.0}}
+        underline
+        uppercase>
+        $3
+    </Bx.Text>
