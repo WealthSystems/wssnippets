@@ -6,16 +6,16 @@
   "version": "1.2.0",
   "publisher": "fabiojwalter",
   "license": "See License section in README.md.",
-  "homepage": "https://fabiojwalter.github.io/wssnippets/",
+  "homepage": "https://github.com/fabiojwalter/wssnippet",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabiojwalter/wssnippets/blob/master/README.md"
+    "url": "https://github.com/fabiojwalter/wssnippet/blob/master/README.md"
   },
   "engines": {
     "vscode": "^0.10.1"
   },
   "galleryBanner": {
-    "color": "#c7e2cd",
+    "color": "#ebf4fb",
     "theme": "light"
   },
   "categories": [
