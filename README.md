@@ -13,7 +13,7 @@ Snippets for:
 - Material Icons
 - Material Community Icons
 
-`\[feature X\]\(images/feature-x.png\)`
+![Plugin in action](images/wssnippets.gif)
 
 
 ## Setup (in 2 easy steps)
