@@ -1,0 +1,3 @@
+"deletion":{
+    "isSoftDelete": false
+}
