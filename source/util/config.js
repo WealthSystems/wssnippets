@@ -12,7 +12,7 @@ exports.GENERATORS = {
     ct: {
         prefix: 'ct',
         name: 'Crane Transformation',
-        allowedExtensions: ['.js','json']
+        allowedExtensions: ['.js','.json']
     }
 }
 
