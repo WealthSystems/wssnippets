@@ -8,6 +8,11 @@ exports.GENERATORS = {
         prefix: 'mj',
         name: 'Mjolnir',
         allowedExtensions: ['.jsx']
+    },
+    ct: {
+        prefix: 'ct',
+        name: 'Crane Transformation',
+        allowedExtensions: ['.js','json']
     }
 }
 
@@ -31,5 +36,10 @@ exports.STATIC = {
         prefix: 'mp',
         name: 'Material Colors Palette',
         file: 'material-colors.txt'
+    },
+    adt: {
+        prefix: 'adt',
+        name: 'Analytics Data Type',
+        file: 'analytics-datatype.txt'
     }
 }
