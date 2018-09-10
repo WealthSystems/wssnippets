@@ -462,6 +462,391 @@
         "description": "Mjolnir textinput phone",
         "scope": ""
     },
+    "Crane Transformation component sql": {
+        "prefix": "ct-component-sql",
+        "body": [
+            "\"sql\":\"SELECT * FROM \\${tableAlias}\""
+        ],
+        "description": "Crane Transformation component sql",
+        "scope": ""
+    },
+    "Crane Transformation connection cassandra": {
+        "prefix": "ct-connection-cassandra",
+        "body": [
+            "\"cassandraConnection\": {",
+            "    \"keyspaceName\": ${1:\"env_tenant_workspace\"},",
+            "    \"tableName\": ${2:\"table\"}",
+            "}"
+        ],
+        "description": "Crane Transformation connection cassandra",
+        "scope": ""
+    },
+    "Crane Transformation connection forecast": {
+        "prefix": "ct-connection-forecast",
+        "body": [
+            "\"forecastConnection\": {",
+            "    \"schema\": ${1:\"schemaOrTenant\"},",
+            "    \"datasetName\": ${2:\"dataset\"}",
+            "}"
+        ],
+        "description": "Crane Transformation connection forecast",
+        "scope": ""
+    },
+    "Crane Transformation connection jdbc": {
+        "prefix": "ct-connection-jdbc",
+        "body": [
+            "\"jdbcConnection\": {",
+            "    \"databaseUri\": ${1:\"jdbc:postgresql://uri\"},",
+            "    \"databaseName\": ${2:\"database\"},",
+            "    \"schema\": ${3:\"schemaOrTenant\"},",
+            "    \"table\": ${4:\"tableName\"},",
+            "    \"user\": ${5:\"optional\"},",
+            "    \"password\": ${6:\"optional\"}",
+            "}"
+        ],
+        "description": "Crane Transformation connection jdbc",
+        "scope": ""
+    },
+    "Crane Transformation connection qion": {
+        "prefix": "ct-connection-qion",
+        "body": [
+            "\"qionCloudConnection\": {",
+            "    \"databaseName\": ${1:\"database\"},",
+            "    \"schema\": ${2:\"schemaOrTenant\"},",
+            "    \"table\": ${3:\"tableName\"}",
+            "}"
+        ],
+        "description": "Crane Transformation connection qion",
+        "scope": ""
+    },
+    "Crane Transformation deletion hard": {
+        "prefix": "ct-deletion-hard",
+        "body": [
+            "\"deletion\":{",
+            "    \"isSoftDelete\": false",
+            "}",
+            ""
+        ],
+        "description": "Crane Transformation deletion hard",
+        "scope": ""
+    },
+    "Crane Transformation deletion soft": {
+        "prefix": "ct-deletion-soft",
+        "body": [
+            "\"deletion\":{",
+            "    \"isSoftDelete\": true,",
+            "    \"controlField\": {",
+            "        \"fieldName\": \"deleted\",",
+            "        \"valueWhenDeleted\": \"true\"",
+            "    }",
+            "}",
+            ""
+        ],
+        "description": "Crane Transformation deletion soft",
+        "scope": ""
+    },
+    "Crane Transformation savemode cdc": {
+        "prefix": "ct-savemode-cdc",
+        "body": [
+            "\"saveMode\":\"cdcMerge\""
+        ],
+        "description": "Crane Transformation savemode cdc",
+        "scope": ""
+    },
+    "Crane Transformation source default": {
+        "prefix": "ct-source-default",
+        "body": [
+            "\"source\": [{",
+            "    \"connection\":{",
+            "        ${1:ct-connection-}",
+            "    },",
+            "    \"alias\": ${2:\"tableAlias\"}",
+            "}]"
+        ],
+        "description": "Crane Transformation source default",
+        "scope": ""
+    },
+    "Crane Transformation target analytics": {
+        "prefix": "ct-target-analytics",
+        "body": [
+            "\"target\": {",
+            "    ct-target-plugin-analytics,",
+            "    \"connection\":{",
+            "        ct-connection-cassandra",
+            "    },",
+            "    ct-deletion-hard,",
+            "    ct-savemode-cdc,",
+            "    \"primaryKeys\":[\"\"]",
+            "}"
+        ],
+        "description": "Crane Transformation target analytics",
+        "scope": ""
+    },
+    "Crane Transformation target default": {
+        "prefix": "ct-target-default",
+        "body": [
+            "\"target\": {",
+            "    \"plugin\":${1|ct-target-plugin-|\"\"},",
+            "    \"connection\":{",
+            "        ct-connection-",
+            "    },",
+            "    ${2|ct-deletion-soft,ct-deletion-hard|},",
+            "    ct-savemode-cdc,",
+            "    \"isCloudEntity\":${3|true,false|},",
+            "    \"primaryKeys\":[\"\"]",
+            "}"
+        ],
+        "description": "Crane Transformation target default",
+        "scope": ""
+    },
+    "Crane Transformation target forecast": {
+        "prefix": "ct-target-forecast",
+        "body": [
+            "\"target\": {",
+            "    ct-target-plugin-forecast,",
+            "    \"connection\":{",
+            "        ct-connection-cassandra",
+            "    },",
+            "    ct-deletion-hard,",
+            "    ct-savemode-cdc,",
+            "    \"primaryKeys\":[\"\"]",
+            "}"
+        ],
+        "description": "Crane Transformation target forecast",
+        "scope": ""
+    },
+    "Crane Transformation target integration": {
+        "prefix": "ct-target-integration",
+        "body": [
+            "\"target\": {",
+            "    \"connection\":{",
+            "        ${1|ct-connection-qion,ct-connection-jdbc|}",
+            "    },",
+            "    ${2|ct-deletion-soft,ct-deletion-hard|},",
+            "    ct-savemode-cdc,",
+            "    \"isCloudEntity\":true,",
+            "    \"primaryKeys\":[\"id\"]",
+            "}"
+        ],
+        "description": "Crane Transformation target integration",
+        "scope": ""
+    },
+    "Crane Transformation target plugin-analytics": {
+        "prefix": "ct-target-plugin-analytics",
+        "body": [
+            "\"plugin\":\"analytics\",",
+            "\"analyticsMetadata\": {",
+            "    \"datasetAlias\": \"dataset\",",
+            "    \"description\": \"DataSet Description\",",
+            "    \"icon\": \"fa-icon\",",
+            "    \"fieldMetadata\": [{",
+            "        \"fieldName\": \"name\",",
+            "        \"alias\": \"Cool Name\",",
+            "        \"description\": \"Description\",",
+            "        \"dataType\":\"text\"",
+            "    }]",
+            "}",
+            ""
+        ],
+        "description": "Crane Transformation target plugin-analytics",
+        "scope": ""
+    },
+    "Crane Transformation target plugin-forecast": {
+        "prefix": "ct-target-plugin-forecast",
+        "body": [
+            "\"plugin\":\"forecast\",",
+            "\"forecastFieldRelations\":[{",
+            "    \"sourceDataset\":\"srcDatasetName\"",
+            "    \"sourceField\":\"srcField\",",
+            "    \"targetField\":\"trgField\"",
+            "}]",
+            ""
+        ],
+        "description": "Crane Transformation target plugin-forecast",
+        "scope": ""
+    },
+    "Crane Transformation template analytics": {
+        "prefix": "ct-template-analytics",
+        "body": [
+            "/*",
+            " CRANE TRANSFRMATION DESCRIPTOR - ANALYTICS TEMPLATE",
+            "",
+            " {",
+            "\"source\": [{",
+            "    \"connection\": {",
+            "        \"cassandraConnection\": {",
+            "            \"keyspaceName\": \"env_tenant_datalake\",",
+            "            \"tableName\": \"table\"",
+            "        }",
+            "    },",
+            "    \"alias\": \"tableAlias\"",
+            "}],",
+            "\"target\": {",
+            "    \"plugin\":\"analytics\",",
+            "    \"analyticsMetadata\": {",
+            "        \"datasetAlias\": \"My Dataset\",",
+            "        \"description\": \"Dataset Description\",",
+            "        \"icon\": \"fa-icon\",",
+            "        \"fieldMetadata\": [{",
+            "            \"fieldName\": \"name\",",
+            "            \"alias\": \"Some Name\",",
+            "            \"description\": \"Field Description\",",
+            "            \"dataType\": \"text\"",
+            "        }]",
+            "    },",
+            "    \"connection\": {",
+            "        \"cassandraConnection\": {",
+            "            \"keyspaceName\": \"env_tenant_analytics\",",
+            "            \"tableName\": \"datasetName\"",
+            "        }",
+            "    },",
+            "    \"deletion\":{",
+            "        \"isSoftDelete\": false",
+            "    },",
+            "    \"saveMode\":\"cdcMerge\",",
+            "    \"primaryKeys\": [\"id\"]",
+            "},",
+            "\"sql\": \"select id, ref_id FROM ${tableAlias}\"",
+            "}",
+            "*/",
+            "{",
+            "    ct-source-default,",
+            "    ct-target-analytics,",
+            "    ct-component-sql",
+            "}"
+        ],
+        "description": "Crane Transformation template analytics",
+        "scope": ""
+    },
+    "Crane Transformation template forecast": {
+        "prefix": "ct-template-forecast",
+        "body": [
+            "/*",
+            " CRANE TRANSFRMATION DESCRIPTOR - FORECAST TEMPLATE",
+            "",
+            " {",
+            "\"source\": [{",
+            "    \"connection\": {",
+            "        \"cassandraConnection\": {",
+            "            \"keyspaceName\": \"env_tenant_datalake\",",
+            "            \"tableName\": \"table\"",
+            "        }",
+            "    },",
+            "    \"alias\": \"tableAlias\"",
+            "}, {",
+            "    \"connection\": {",
+            "        \"forecastConnection\": {",
+            "            \"schema\": \"myschema\",",
+            "            \"datasetName\": \"mydataset\"",
+            "        }",
+            "    },",
+            "    \"alias\": \"refDsAlias\"",
+            "}],",
+            "\"target\": {",
+            "    \"plugin\":\"forecast\",",
+            "    \"forecastFieldRelations\":[{",
+            "        \"sourceDataset\":\"mydataset\"",
+            "        \"sourceField\":\"id\",",
+            "        \"targetField\":\"ref_dataset_id\"",
+            "    }]",
+            "    \"connection\": {",
+            "        \"cassandraConnection\": {",
+            "            \"keyspaceName\": \"env_tenant_forecast\",",
+            "            \"tableName\": \"datasetName\"",
+            "        }",
+            "    },",
+            "    \"deletion\":{",
+            "        \"isSoftDelete\": false",
+            "    },",
+            "    \"saveMode\":\"cdcMerge\",",
+            "    \"primaryKeys\": [\"id\"]",
+            "},",
+            "\"sql\": \"SELECT a.id, a.name, b.id as ref_dataset_id, b.name as ref_name FROM ${tableAlias} a LEFT JOIN ${refDsAlias} b ON a.ds_id = b.id\"",
+            "}",
+            "*/",
+            "{",
+            "    ct-source-default,",
+            "    ct-target-forecast,",
+            "    ct-component-sql",
+            "}"
+        ],
+        "description": "Crane Transformation template forecast",
+        "scope": ""
+    },
+    "Crane Transformation template integration": {
+        "prefix": "ct-template-integration",
+        "body": [
+            "/*",
+            " CRANE TRANSFRMATION DESCRIPTOR - QION CLOUD INTEGRATION TEMPLATE",
+            "",
+            " {",
+            "\"source\": [{",
+            "    \"connection\": {",
+            "        \"cassandraConnection\": {",
+            "            \"keyspaceName\": \"env_tenant_datalake\",",
+            "            \"tableName\": \"table\"",
+            "        }",
+            "    },",
+            "    \"alias\": \"tableAlias\"",
+            "}],",
+            "\"externalExchange\": [{",
+            "    \"referenceColumn\": \"ref_id\",",
+            "    \"connection\": {",
+            "        \"jdbcConnection\": {",
+            "            \"databaseUri\": \"jdbc:postgresql://uri\",",
+            "            \"databaseName\": \"refDB\",",
+            "            \"schema\": \"tenantName\",",
+            "            \"table\": \"ref\"",
+            "        }",
+            "    }",
+            "}],",
+            "\"target\": {",
+            "    \"connection\": {",
+            "        \"jdbcConnection\": {",
+            "            \"databaseUri\": \"jdbc:postgresql://uri\",",
+            "            \"databaseName\": \"targetDB\",",
+            "            \"schema\": \"tenantName\",",
+            "            \"table\": \"targetTable\"",
+            "        }",
+            "    },",
+            "    \"deletion\":{",
+            "        \"isSoftDelete\": true,",
+            "        \"controlField\": {",
+            "            \"fieldName\": \"deleted\",",
+            "            \"valueWhenDeleted\": \"true\"",
+            "        }",
+            "    },",
+            "    \"saveMode\":\"cdcMerge\",",
+            "    \"isCloudEntity\": true,",
+            "    \"primaryKeys\": [\"id\"]",
+            "},",
+            "\"sql\": \"select id, ref_id FROM ${tableAlias}\"",
+            "}",
+            "*/",
+            "{",
+            "    ct-source-default,",
+            "    ct-transform-ext-exchange,",
+            "    ct-target-integration,",
+            "    ct-component-sql",
+            "}"
+        ],
+        "description": "Crane Transformation template integration",
+        "scope": ""
+    },
+    "Crane Transformation transform ext-exchange": {
+        "prefix": "ct-transform-ext-exchange",
+        "body": [
+            "\"externalExchange\": [{",
+            "    \"referenceColumn\":${1:\"columnToExchange\"},",
+            "    \"externalColumn\":${2:\"optional\"},",
+            "    \"connection\":{",
+            "        ${3:ct-connection-}",
+            "    }",
+            "}]"
+        ],
+        "description": "Crane Transformation transform ext-exchange",
+        "scope": ""
+    },
     "Font Awesome 500px": {
         "prefix": "fa-500px",
         "body": "500px",
@@ -27106,6 +27491,30 @@
         "prefix": "mp-yellow-A700",
         "body": "yellow-A700",
         "description": "Material Colors Palette yellow-A700",
+        "scope": ""
+    },
+    "Analytics Data Type text": {
+        "prefix": "adt-text",
+        "body": "text",
+        "description": "Analytics Data Type text",
+        "scope": ""
+    },
+    "Analytics Data Type date": {
+        "prefix": "adt-date",
+        "body": "date",
+        "description": "Analytics Data Type date",
+        "scope": ""
+    },
+    "Analytics Data Type number": {
+        "prefix": "adt-number",
+        "body": "number",
+        "description": "Analytics Data Type number",
+        "scope": ""
+    },
+    "Analytics Data Type coordinate": {
+        "prefix": "adt-coordinate",
+        "body": "coordinate",
+        "description": "Analytics Data Type coordinate",
         "scope": ""
     }
 }

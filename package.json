@@ -3,7 +3,7 @@
   "displayName": "WS Snippets",
   "description": "Bricks, Mjolnir, Font awesome Icons, Material Icons, Material design icons community, Material Design Colors",
   "icon": "images/icon.png",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "publisher": "fabiojwalter",
   "license": "See License section in README.md.",
   "homepage": "https://github.com/fabiojwalter/wssnippet",
@@ -37,6 +37,14 @@
       },
       {
         "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "json",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "jsonc",
         "path": "./snippets/snippets.json"
       },
       {

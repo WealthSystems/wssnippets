@@ -84,6 +84,25 @@ Bricks text-area text-area-required | `bx-text-area-text-area-required`
 Bricks text-area text-area | `bx-text-area-text-area`
 Mjolnir select phone | `mj-select-phone`
 Mjolnir textinput phone | `mj-textinput-phone`
+Crane Transformation component sql | `ct-component-sql`
+Crane Transformation connection cassandra | `ct-connection-cassandra`
+Crane Transformation connection forecast | `ct-connection-forecast`
+Crane Transformation connection jdbc | `ct-connection-jdbc`
+Crane Transformation connection qion | `ct-connection-qion`
+Crane Transformation deletion hard | `ct-deletion-hard`
+Crane Transformation deletion soft | `ct-deletion-soft`
+Crane Transformation savemode cdc | `ct-savemode-cdc`
+Crane Transformation source default | `ct-source-default`
+Crane Transformation target analytics | `ct-target-analytics`
+Crane Transformation target default | `ct-target-default`
+Crane Transformation target forecast | `ct-target-forecast`
+Crane Transformation target integration | `ct-target-integration`
+Crane Transformation target plugin-analytics | `ct-target-plugin-analytics`
+Crane Transformation target plugin-forecast | `ct-target-plugin-forecast`
+Crane Transformation template analytics | `ct-template-analytics`
+Crane Transformation template forecast | `ct-template-forecast`
+Crane Transformation template integration | `ct-template-integration`
+Crane Transformation transform ext-exchange | `ct-transform-ext-exchange`
 Font Awesome 500px | `fa-500px`
 Font Awesome adjust | `fa-adjust`
 Font Awesome adn | `fa-adn`
@@ -4525,4 +4544,8 @@ Material Colors Palette yellow-A100 | `mp-yellow-A100`
 Material Colors Palette yellow-A200 | `mp-yellow-A200`
 Material Colors Palette yellow-A400 | `mp-yellow-A400`
 Material Colors Palette yellow-A700 | `mp-yellow-A700`
+Analytics Data Type text | `adt-text`
+Analytics Data Type date | `adt-date`
+Analytics Data Type number | `adt-number`
+Analytics Data Type coordinate | `adt-coordinate`
 
