@@ -1,7 +1,7 @@
     <Bx.Text
         bold
         capitalize
-        color="${1:Color"
+        color="${1:Color}"
         deleted
         ellipsis
         italic
