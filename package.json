@@ -4,12 +4,12 @@
   "description": "Bricks, Mjolnir, Font awesome Icons, Material Icons, Material design icons community, Material Design Colors",
   "icon": "images/icon.png",
   "version": "1.3.1",
-  "publisher": "fabiojwalter",
-  "license": "See License section in README.md.",
-  "homepage": "https://github.com/fabiojwalter/wssnippet",
+  "publisher": "WealthSystems",
+  "license": "MIT",
+  "homepage": "https://github.com/WealthSystems/wssnippets",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabiojwalter/wssnippet/blob/master/README.md"
+    "url": "https://github.com/WealthSystems/wssnippets/blob/master/README.md"
   },
   "engines": {
     "vscode": "^0.10.1"
